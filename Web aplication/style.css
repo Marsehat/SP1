@@ -1,0 +1,272 @@
+body, p, h1, h2, h3, h4, h5, h6, li, span, div {
+    font-family: Calibri, sans-serif;
+    color: #212529;
+    text-align: center;
+}
+
+.company-logo {
+    width: 120px;
+    height: auto;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.navbar {
+    font-family: Consolas, monospace;
+}
+.navbar .nav-item {
+    background-color: #0E8EA8;
+    color: #fff;
+    font-family: Consolas, monospace;
+}
+
+.navbar .dropdown-menu {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.navbar .dropdown-menu.show {
+    display: block;
+    opacity: 1;
+}
+
+
+.navbar .dropdown-menu .dropdown-item {
+    background-color: #83D1E1;
+    color: #212529;
+    font-family: Consolas, monospace;
+}
+
+.navbar .nav-item a {
+    color: #fff !important;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    border: 1px solid #212529;
+    border-radius: 8px;
+    overflow: hidden;
+    table-layout: fixed;
+}
+
+th, td {
+    border: 1px solid #212529;
+    padding: 8px;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+th {
+    font-family: Consolas, monospace;
+    background-color: #0E8EA8;
+    color: #fff;
+}
+
+td {
+    font-family: Calibri, sans-serif;
+    background-color: #83D1E1;
+    color: #212529;
+}
+
+th label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+th input, th select {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.table-responsive tbody tr {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+
+button {
+    font-family: Consolas, monospace;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.green-button, .in-button, .add-delivery-button {
+    background-color: #198754;
+}
+
+.green-button:hover, .green-button:focus,
+.in-button:hover, .in-button:focus,
+.add-delivery-button:hover, .add-delivery-button:focus {
+    background-color: #157347;
+}
+
+.out-button, .clear-button {
+    background-color: #dc3545;
+}
+
+.out-button:hover, .out-button:focus,
+.clear-button:hover, .clear-button:focus {
+    background-color: #c82333;
+}
+
+.clear-button {
+    margin-bottom: 10px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.button-container .out-button {
+    align-self: flex-start;
+}
+
+.button-container .in-button {
+    align-self: flex-end;
+}
+
+button {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.selected-green {
+    background-color: green !important;
+    color: white !important; 
+}
+.toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.toast {
+    display: flex;
+    align-items: center;
+    background-color: blue;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.toast.show {
+    opacity: 1;
+}
+
+
+.toast-picture img {
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.toast-content {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.close-toast {
+    background-color: darkred; 
+}
+
+.digital-clock {
+    font-size: 16px;
+    color: #333;
+}
+
+.delivery-inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.delivery-inputs input {
+    margin: 5px 0;
+    padding: 10px;
+    width: 200px;
+}
+
+.hover-highlight {
+    background-color: #f0f0f0; 
+}
+
+.selected {
+    outline: 2px solid #0E8EA8; 
+    outline-offset: -2px; 
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.footer p {
+    margin: 0;
+}
+
+.footer .digital-clock {
+    margin-left: auto;
+}
+
+.scroll-buttons {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+    transform: translateY(-50%);
+}
+
+.scroll-button {
+    background-color: #0E8EA8;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.scroll-button:hover {
+    background-color: #0c6c8a;
+    transform: scale(1.1);
+}
+
+.scroll-button i {
+    font-size: 16px;
+}

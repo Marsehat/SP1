@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeDeliverTech</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="./Company logo.png" alt="WeDeliverTechTM Logo" class="company-logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Dashboard</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="inventoryDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Inventory
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="inventoryDropdown">
+                        <a class="dropdown-item" href="#">Search</a>
+                        <a class="dropdown-item" href="#">Add</a>
+                        <a class="dropdown-item" href="#">Reserve</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="ordersDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Orders
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="ordersDropdown">
+                        <a class="dropdown-item" href="#">View</a>
+                        <a class="dropdown-item" href="#">Track</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="content">
+            <h2>RECEPTION MANAGEMENT DASHBOARD STAFF</h2>
+            <div class="table-responsive">
+                <table class="table table-striped" id="staff-table">
+                    <thead>
+                        <tr>
+                            <th>Picture</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email address</th>
+                            <th>Status</th>
+                            <th>Out time</th>
+                            <th>Duration</th>
+                            <th>Expected Return Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </div>
+            <div class="button-container">
+                <button class="out-button" onclick="staffOut()">Out</button>
+                <button class="in-button" onclick="staffIn()">In</button>
+            </div>
+
+            
+            <div id="toast-container" class="toast-container"></div>
+
+            <h3>SCHEDULE DELIVERY </h3>
+
+            <div class="table-responsive">
+                <table class="table table-striped" id="schedule-delivery-table">
+                    <thead>
+                        <tr>
+                            <th>Vehicle</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Telephone</th>
+                            <th>Address</th>
+                            <th>Return time</th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="vehicleType"></label>
+                                <select id="vehicleType" class="vehicle-select">
+                                    <option value="Car"> Car</option> 
+                                    <option value="Bike">Bike</option> 
+                                    <option value="Truck">Truck</option>
+                                </select>
+                            </th>
+                            <th>
+                                <label for="firstName"></label>
+                                <input type="text" id="firstName" autocomplete="given-name">
+                            </th>
+                            <th>
+                                <label for="lastName"></label>
+                                <input type="text" id="lastName" autocomplete="family-name">
+                            </th>
+                            <th>
+                                <label for="telephone"></label>
+                                <input type="text" id="telephone" autocomplete="tel">
+                            </th>
+                            <th>
+                                <label for="address"></label>
+                                <input type="text" id="address" autocomplete="street-address">
+                            </th>
+                            <th>
+                                <label for="expectedReturnTime"></label>
+                                <input type="datetime-local" id="expectedReturnTime" autocomplete="off">
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+                <div class="button-container">
+                    <button class="in-button" onclick="addDelivery()">Add Delivery</button>
+                </div>
+                <div class="notification-warning" id="notification-warning" style="display: none; color: red;"></div>
+                <h3>Delivery Board</h3>
+                <div class="table-responsive">
+                    <table id="delivery-board-table">
+                        <thead>
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Telephone</th>
+                                <th>Vehicle Type</th>
+                                <th>Status</th>
+                                <th>Expected Return Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           
+                        </tbody>
+                    </table>
+                    <div class="button-container">
+                        <button class="clear-button" onclick="clearSelectedRows()">Clear</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2023 WeDeliverTech. All rights reserved.</p>
+        <div id="digital-clock" class="digital-clock"></div>
+    </footer>
+
+    <div class="scroll-buttons">
+        <button id="scroll-up" class="scroll-button"><i class="fas fa-arrow-up"></i></button>
+        <button id="scroll-down" class="scroll-button"><i class="fas fa-arrow-down"></i></button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="wdt_app.js"></script>
+</body>
+
+</html>
